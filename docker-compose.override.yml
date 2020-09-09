@@ -6,8 +6,7 @@ version: '3.4'
 services:
   consumer:
     volumes:
-      - ../consumer:/usr/src/consumer/
+      - ./:/usr/src/consumer/
       - $PWD/temp/bash_history:/root/
       # data vol to store node_modules
       - /usr/src/consumer/node_modules
-      - ../.git:/usr/src/.git

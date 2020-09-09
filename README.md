@@ -1,8 +1,5 @@
 # Consumer App
 
-[![FrontendWebsite/ProductService Pact Status](https://telegacom.pact.dius.com.au/pacts/provider/ProductService/consumer/FrontendWebsite/latest/badge.svg?label=provider)](https://telegacom.pact.dius.com.au/pacts/provider/ProductService/consumer/FrontendWebsite/latest) (latest pact)
-
-[![FrontendWebsite/ProductService Pact Status](https://telegacom.pact.dius.com.au/matrix/provider/ProductService/latest/master/consumer/FrontendWebsite/latest/master/badge.svg?label=provider)](https://telegacom.pact.dius.com.au/pacts/provider/ProductService/consumer/FrontendWebsite/latest/master) (master/master pact)
 
 Product Catalog website provides an interface to query the Product service for product information.
 
@@ -10,9 +7,9 @@ Product Catalog website provides an interface to query the Product service for p
 
 1. cd into project's root dir
 
-1. start only consumer app:
+1. start app:
 
-        $ make start_consumer
+        $ make start
 
 1. open your browser and navigate to http://localhost:3000
 
@@ -21,19 +18,38 @@ Product Catalog website provides an interface to query the Product service for p
 
 1. run all tests at once
 
-        $ make consumer_test
+        $ make test
 
 1. run only unit tests
 
-        $ make consumer_test_unit
+        $ make test_unit
 
 1. run only contract tests
 
-        $ make consumer_test_contract
+        $ make test_contract
 
 
-### Generate and publish contract files to Pact Broker
+### Publish contracts from consumer app to **local** Pact Broker
 
-1. generate contract file and publish to Pact Broker
+1. Launch Dockerized [Pact Broker](https://github.com/DiUS/pact_broker-docker) locally:
 
-        $ make consumer_publish_pact
+        $ docker-compose -f docker-compose.pactBroker.yml up
+    Pact Broker will be accessible at http://localhost:8081
+
+1. Build docker image for consumer app (Run from separate terminal window)
+
+        $ make build
+
+1. Generate and publish contracts to Pact Broker
+
+        $ make publish_pact
+
+### Publish contracts from consumer app to **remote** Pact Broker
+
+1. Build docker image for consumer app
+
+        $ make build
+
+1. Generate and publish contracts to Pact Broker
+
+        $ PACT_BROKER_URL=https://<YOUR USERNAME>.pact.dius.com.au PACT_BROKER_TOKEN=<YOUR TOKEN> make publish_pact
