@@ -1,5 +1,6 @@
 # Consumer App
 
+[![Build Status](https://travis-ci.com/shilgam/pact-demo-consumer.svg?branch=master)](https://travis-ci.com/shilgam/pact-demo-consumer)
 
 Product Catalog website provides an interface to query the Product service for product information.
 
