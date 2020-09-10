@@ -1,4 +1,4 @@
-# Consumer App
+# pact-demo-consumer
 
 [![Build Status](https://travis-ci.com/shilgam/pact-demo-consumer.svg?branch=master)](https://travis-ci.com/shilgam/pact-demo-consumer)
 

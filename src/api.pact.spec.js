@@ -6,8 +6,8 @@ import { API } from './api';
 jest.setTimeout(15000);
 
 const provider = new Pact({
-  consumer: 'FrontendWebsite',
-  provider: 'ProductService',
+  consumer: 'pact-demo-consumer',
+  provider: 'pact-demo-provider',
   log: path.resolve(process.cwd(), 'logs', 'pact.log'),
   logLevel: 'warn',
   dir: path.resolve(process.cwd(), 'pacts'),
