@@ -39,7 +39,7 @@ describe('API Pact test', () => {
             'Content-Type': 'application/json; charset=utf-8',
           },
           body: Matchers.eachLike({
-            id: Matchers.like('09'),
+            id: Matchers.like(9),
             type: Matchers.like('CREDIT_CARD'),
             name: Matchers.like('Gem Visa'),
           }, { min: 2 }),
@@ -52,8 +52,8 @@ describe('API Pact test', () => {
       const product = await api.getAllProducts();
 
       expect(product).toStrictEqual([
-        { id: '09', name: 'Gem Visa', type: 'CREDIT_CARD' },
-        { id: '09', name: 'Gem Visa', type: 'CREDIT_CARD' },
+        { id: 9, name: 'Gem Visa', type: 'CREDIT_CARD' },
+        { id: 9, name: 'Gem Visa', type: 'CREDIT_CARD' },
       ]);
     });
 
@@ -92,7 +92,7 @@ describe('API Pact test', () => {
         uponReceiving: 'get product with ID 10',
         withRequest: {
           method: 'GET',
-          path: '/product/10',
+          path: '/products/10',
         },
         willRespondWith: {
           status: 200,
@@ -100,7 +100,7 @@ describe('API Pact test', () => {
             'Content-Type': 'application/json; charset=utf-8',
           },
           body: {
-            id: Matchers.like('10'),
+            id: Matchers.like(10),
             type: Matchers.like('CREDIT_CARD'),
             name: Matchers.like('28 Degrees'),
           },
@@ -110,10 +110,10 @@ describe('API Pact test', () => {
       const api = new API(provider.mockService.baseUrl);
 
       // make request to Pact mock server
-      const product = await api.getProduct('10');
+      const product = await api.getProduct(10);
 
       expect(product).toStrictEqual({
-        id: '10',
+        id: 10,
         type: 'CREDIT_CARD',
         name: '28 Degrees',
       });
@@ -126,7 +126,7 @@ describe('API Pact test', () => {
         uponReceiving: 'get product with ID 11',
         withRequest: {
           method: 'GET',
-          path: '/product/11',
+          path: '/products/11',
         },
         willRespondWith: {
           status: 404,
@@ -136,7 +136,7 @@ describe('API Pact test', () => {
       const api = new API(provider.mockService.baseUrl);
 
       // make request to Pact mock server
-      await expect(api.getProduct('11')).rejects.toThrow('Request failed with status code 404');
+      await expect(api.getProduct(11)).rejects.toThrow('Request failed with status code 404');
     });
   });
 });

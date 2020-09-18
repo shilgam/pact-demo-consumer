@@ -5,13 +5,13 @@ describe('API', () => {
   test('get all products', async () => {
     const products = [
       {
-        id: '9',
+        id: 9,
         type: 'CREDIT_CARD',
         name: 'GEM Visa',
         version: 'v2',
       },
       {
-        id: '10',
+        id: 10,
         type: 'CREDIT_CARD',
         name: '28 Degrees',
         version: 'v1',
@@ -28,15 +28,15 @@ describe('API', () => {
 
   test('get product ID 50', async () => {
     const product = {
-      id: '50',
+      id: 50,
       type: 'CREDIT_CARD',
       name: '28 Degrees',
       version: 'v1',
     };
     nock(API.url)
-      .get('/product/50')
+      .get('/products/50')
       .reply(200, product, { 'Access-Control-Allow-Origin': '*' });
-    const respProduct = await API.getProduct('50');
+    const respProduct = await API.getProduct(50);
     expect(respProduct).toEqual(product);
   });
 });

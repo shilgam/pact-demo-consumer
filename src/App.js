@@ -11,7 +11,7 @@ import API from './api';
 
 const productPropTypes = {
   product: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
   }).isRequired,
@@ -94,7 +94,7 @@ class App extends React.Component {
   determineVisibleProducts() {
     const findProducts = (search) => {
       search = search.toLowerCase();
-      return this.state.products.filter((p) => p.id.toLowerCase().includes(search)
+      return this.state.products.filter((p) => p.id.toString().toLowerCase().includes(search)
                 || p.name.toLowerCase().includes(search)
                 || p.type.toLowerCase().includes(search));
     };
