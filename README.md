@@ -6,9 +6,13 @@ Product Catalog website provides an interface to query the Product service for p
 
 ## Usage
 
+1. run [provider app](https://github.com/shilgam/pact-demo-provider#usage)
+
+1. clone this repo
+
 1. cd into project's root dir
 
-1. start app:
+1. start app
 
         $ make start
 
@@ -32,25 +36,26 @@ Product Catalog website provides an interface to query the Product service for p
 
 ### Publish contracts from consumer app to **local** Pact Broker
 
-1. Launch Dockerized [Pact Broker](https://github.com/DiUS/pact_broker-docker) locally:
+1. launch Dockerized [Pact Broker](https://github.com/DiUS/pact_broker-docker) locally:
 
         $ docker-compose -f docker-compose.pactBroker.yml up
     Pact Broker will be accessible at http://localhost:8081
 
-1. Build docker image for consumer app (Run from separate terminal window)
+1. build docker image for consumer app (Run from separate terminal window)
 
         $ make build
 
-1. Generate and publish contracts to Pact Broker
+1. generate and publish contracts to Pact Broker
 
-        $ make publish_pact
+        $ LOCAL_PACT_BROKER=true make publish_pact
 
 ### Publish contracts from consumer app to **remote** Pact Broker
 
-1. Build docker image for consumer app
+1. build docker image for consumer app
 
         $ make build
 
-1. Generate and publish contracts to Pact Broker
+1. generate and publish contracts to Pact Broker
 
-        $ PACT_BROKER_URL=https://<YOUR USERNAME>.pact.dius.com.au PACT_BROKER_TOKEN=<YOUR TOKEN> make publish_pact
+        $ PACT_BROKER_TOKEN=<YOUR TOKEN> make publish_pact
+    where `<YOUR TOKEN>` - API token from pact broker settings.
