@@ -16,7 +16,11 @@ jobs:
       script: |
         make publish_pact_ci
 
-    # - stage: "Verify contract on Provider"
-    #   script: |
-    #     printenv
-    #     make provider_verify_pact_ci
+    - stage: "Deploy"
+      name: "Deploy to prod"
+      env:
+        - PACT_BROKER_BASE_URL=https://telegacom.pact.dius.com.au
+      script: |
+        printenv
+        make deploy_to_prod
+      if: branch =~ /^(master|fake_deploy).*/
