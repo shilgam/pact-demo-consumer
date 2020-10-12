@@ -1,4 +1,4 @@
-const pact = require('@pact-foundation/pact-node');
+const { Publisher } = require('@pact-foundation/pact');
 const path = require('path');
 
 if (!process.env.CI) {
@@ -48,7 +48,7 @@ if (typeof process.env.LOCAL_PACT_BROKER === 'undefined' || process.env.LOCAL_PA
 console.log('>>>>> opts:');
 console.log(opts);
 
-pact
+new Publisher(opts)
   .publishPacts(opts)
   .then(() => {
     console.log('Pact contract publishing complete!');
