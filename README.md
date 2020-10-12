@@ -1,10 +1,10 @@
 # pact-demo-consumer
 
-[![Build Status](https://travis-ci.com/shilgam/pact-demo-consumer.svg?branch=master)](https://travis-ci.com/shilgam/pact-demo-consumer)
+[![Build Status](https://travis-ci.com/shilgam/pact-demo-consumer.svg?branch=master_v1)](https://travis-ci.com/shilgam/pact-demo-consumer)
 
 [![Consumer(prod)/provider(prod) Pact Status](https://telegacom.pact.dius.com.au/matrix/provider/pact-demo-provider/latest/prod/consumer/pact-demo-consumer/latest/prod/badge.svg?initials=true)](https://telegacom.pact.dius.com.au/matrix?q[]pacticipant=pact-demo-consumer&q[]tag=prod&q[]latest=true&q[]pacticipant=pact-demo-provider&q[]tag=prod&q[]latest=true&latestby=cvpv&limit=100)
-[![Consumer(master)/provider(prod) Pact Status](https://telegacom.pact.dius.com.au/matrix/provider/pact-demo-provider/latest/prod/consumer/pact-demo-consumer/latest/master/badge.svg?initials=true)](https://telegacom.pact.dius.com.au/matrix?q[]pacticipant=pact-demo-consumer&q[]tag=master&q[]latest=true&q[]pacticipant=pact-demo-provider&q[]tag=prod&q[]latest=true&latestby=cvpv&limit=100)
-[![Can I deploy master to prod Status](https://telegacom.pact.dius.com.au/pacticipants/pact-demo-consumer/latest-version/master/can-i-deploy/to/prod/badge)](https://telegacom.pact.dius.com.au/pacticipants/pact-demo-consumer/latest-version/master/can-i-deploy/to/prod)
+[![Consumer(master_v1)/provider(prod) Pact Status](https://telegacom.pact.dius.com.au/matrix/provider/pact-demo-provider/latest/prod/consumer/pact-demo-consumer/latest/master_v1/badge.svg?initials=true)](https://telegacom.pact.dius.com.au/matrix?q[]pacticipant=pact-demo-consumer&q[]tag=master_v1&q[]latest=true&q[]pacticipant=pact-demo-provider&q[]tag=prod&q[]latest=true&latestby=cvpv&limit=100)
+[![Can I deploy master_v1 to prod Status](https://telegacom.pact.dius.com.au/pacticipants/pact-demo-consumer/latest-version/master_v1/can-i-deploy/to/prod/badge)](https://telegacom.pact.dius.com.au/pacticipants/pact-demo-consumer/latest-version/master_v1/can-i-deploy/to/prod)
 
 Product Catalog website provides an interface to query the Product service for product information.
 
