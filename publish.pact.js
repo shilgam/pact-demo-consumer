@@ -10,11 +10,11 @@ const pactBrokerUrl = process.env.LOCAL_PACT_BROKER ? process.env.LOCAL_PACT_BRO
 const providerBaseUrl = process.env.PROVIDER_BASE_URL;
 const pactFilesOrDirs = [path.resolve(__dirname, './pacts/')];
 const gitCommitHash = require('child_process')
-  .execSync('git rev-parse HEAD')
+  .execSync('git rev-parse HEAD | tr -d "\n"')
   .toString().trim();
 
 const localGitBranch = require('child_process')
-  .execSync('git rev-parse --abbrev-ref HEAD')
+  .execSync('git rev-parse --abbrev-ref HEAD | tr -d "\n"')
   .toString();
 
 const gitBranch = process.env.TRAVIS_BRANCH || localGitBranch;
