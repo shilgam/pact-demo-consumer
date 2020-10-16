@@ -63,9 +63,12 @@ can_i_deploy:
 	"${PACT_CLI}" broker can-i-deploy \
 	  --pacticipant ${PACTICIPANT} \
 	  --version ${TRAVIS_COMMIT} \
-	  --retry-while-unknown 0 \
-	  --retry-interval 10 \
+	  --retry-while-unknown 20 \
+	  --retry-interval 15 \
 	  --to prod
+	  # [--retry-while-unknown=TIMES]   The number of times to retry while
+	  #                                 there is an unknown verification result
+	  # [--retry-interval=SECONDS]      The time between retries in seconds.
 
 deploy_app:
 	@echo ">>> Deploying to prod"
