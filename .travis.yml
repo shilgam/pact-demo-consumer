@@ -4,15 +4,11 @@ services:
 jobs:
   include:
     - stage: "Test Consumer"
-      name: "Unit"
+      name: "Unit test"
       script: |
         make test_unit_ci
 
-    - name: "Contract"
-      script: |
-        make test_contract_ci
-
-    - stage: "Publish contract of Consumer"
+    - name: "Contract test & publish"
       script: |
         make publish_pact_ci
 
