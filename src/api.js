@@ -22,7 +22,7 @@ export class API {
   }
 
   async getAllProducts() {
-    return axios.get(this.withPath('/products'))
+    return axios.get(this.withPath('/entities'))
       .then((r) => r.data);
   }
 
