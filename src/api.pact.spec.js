@@ -26,7 +26,7 @@ describe('API Pact test', () => {
       // set up Pact interactions
       await mockProvider.addInteraction({
         state: 'products exist',
-        uponReceiving: 'a request to get all products',
+        uponReceiving: 'a request to get all products UPDATED',
         withRequest: {
           method: 'GET',
           path: '/products',
