@@ -3,6 +3,9 @@ PACT_CLI="docker run --rm -v ${PWD}:${PWD} -e PACT_BROKER_BASE_URL -e PACT_BROKE
 # NOTE: Env vars PACT_BROKER_BASE_URL and PACT_BROKER_TOKEN should be specified
 # See details: https://github.com/pact-foundation/pact-ruby-cli#usage
 
+TIMES=20   # The # of times to retry while there is an unknown verification result
+SECONDS=15 # The time between retries in seconds
+
 # Only deploy from master_v1
 ifeq ($(TRAVIS_BRANCH),master_v1)
 	DEPLOY_TARGET=deploy
@@ -63,12 +66,9 @@ can_i_deploy:
 	"${PACT_CLI}" broker can-i-deploy \
 	  --pacticipant ${PACTICIPANT} \
 	  --version ${TRAVIS_COMMIT} \
-	  --retry-while-unknown 20 \
-	  --retry-interval 15 \
+	  --retry-while-unknown ${TIMES} \
+	  --retry-interval ${SECONDS} \
 	  --to prod
-	  # [--retry-while-unknown=TIMES]   The number of times to retry while
-	  #                                 there is an unknown verification result
-	  # [--retry-interval=SECONDS]      The time between retries in seconds.
 
 deploy_app:
 	@echo ">>> Deploying to prod"
