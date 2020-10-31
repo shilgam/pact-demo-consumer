@@ -11,15 +11,14 @@ Product Catalog website provides an interface to query the Product service for p
 
 ## Usage
 
-1. run [provider app](https://github.com/shilgam/pact-demo-provider#usage)
-
 1. clone this repo
 
 1. cd into project's root dir
 
-1. start app
+1. launch the app
 
         $ make start
+    NOTE: To get a properly functioning consumer app, first [launch the provider app](https://github.com/shilgam/pact-demo-provider#usage).
 
 1. open your browser and navigate to http://localhost:3000
 
